@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: grpcdemo
-        image: inphinitiz8/grpc-demo:0.0.1
+        image: inphinitiz8/grpc-demo:0.0.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 50051
@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: grpcclient
-        image: inphinitiz8/grpc-demo:0.0.1
+        image: inphinitiz8/grpc-demo:0.0.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
