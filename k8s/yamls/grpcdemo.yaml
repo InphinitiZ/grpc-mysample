@@ -1,1 +1,69 @@
-test
+##################################################################################################
+# Grpcdemo server service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpcdemo
+  labels:
+    app: grpcdemo
+spec:
+  ports:
+  - port: 50051
+    name: grpc
+  selector:
+    app: grpcdemo
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grpcdemo-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grpcdemo
+        version: v1
+    spec:
+      containers:
+      - name: grpcdemo
+        image: inphinitiz8/grpc-demo:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 50051
+---
+##################################################################################################
+# Grpcdemo client service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpcclient
+  labels:
+    app: grpcclient
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: grpcclient
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grpcclient-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grpcclient
+        version: v1
+    spec:
+      containers:
+      - name: grpcclient
+        image: inphinitiz8/grpc-demo:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
