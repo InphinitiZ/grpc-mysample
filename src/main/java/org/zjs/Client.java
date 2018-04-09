@@ -31,7 +31,7 @@ public class Client implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        client = new GrpcClient("localhost", 50051);
+        client = new GrpcClient("grpcdemo", 50051);
     }
 
 }
