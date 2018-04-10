@@ -15,7 +15,7 @@ import org.zjs.restful.service.UserService;
  * Time: 16:21
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
