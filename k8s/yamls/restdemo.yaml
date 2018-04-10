@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: restdemo
-        image: inphinitiz8/grpc-demo:0.0.2
+        image: inphinitiz8/grpc-demo:0.0.3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: restclient
-        image: inphinitiz8/grpc-demo:0.0.2
+        image: inphinitiz8/grpc-demo:0.0.3
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
