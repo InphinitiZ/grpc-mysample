@@ -1,4 +1,4 @@
-package org.zjs;
+package org.zjs.grpc;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

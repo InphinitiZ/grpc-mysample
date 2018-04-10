@@ -1,0 +1,69 @@
+##################################################################################################
+# Restdemo server service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: restdemo
+  labels:
+    app: restdemo
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: restdemo
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: restdemo-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: restdemo
+        version: v1
+    spec:
+      containers:
+      - name: restdemo
+        image: inphinitiz8/grpc-demo:0.0.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+---
+##################################################################################################
+# Restdemo client service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: restclient
+  labels:
+    app: restclient
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: restclient
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: restclient-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: restclient
+        version: v1
+    spec:
+      containers:
+      - name: restclient
+        image: inphinitiz8/grpc-demo:0.0.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
