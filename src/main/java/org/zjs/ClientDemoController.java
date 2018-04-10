@@ -29,7 +29,7 @@ import java.util.List;
 public class ClientDemoController implements InitializingBean {
 
     private static final String GRPC_DEMO_SERVICE_NAME = "grpcdemo";
-    private static final String REST_DEMO_SERVICE_NAME = "http://localhost:8080";
+    private static final String REST_DEMO_SERVICE_NAME = "http://restdemo:8080";
 
     @Autowired
     private HttpClientManager httpClientManager;
